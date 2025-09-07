@@ -1,120 +1,99 @@
-import { useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import painting1 from '@/assets/painting-1.jpg';
-import painting2 from '@/assets/painting-2.jpg';
-import painting3 from '@/assets/painting-3.jpg';
+import React, { useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
+// 👉 Use a transparent‑background version of this image for best results
+// (you can replace with your refined PNG):
+import cartoon from "@/assets/cartoon.png";
 
-const HeroSection = () => {
+const HeroSection: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
+    const onMove = (e: MouseEvent) => {
       if (!heroRef.current) return;
-      
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      
-      const x = (clientX / innerWidth) * 100;
-      const y = (clientY / innerHeight) * 100;
-      
-      heroRef.current.style.setProperty('--mouse-x', `${x}%`);
-      heroRef.current.style.setProperty('--mouse-y', `${y}%`);
+      const x = (e.clientX / innerWidth) * 100;
+      const y = (e.clientY / innerHeight) * 100;
+      heroRef.current.style.setProperty("--mouse-x", `${x}%`);
+      heroRef.current.style.setProperty("--mouse-y", `${y}%`);
     };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    addEventListener("mousemove", onMove);
+    return () => removeEventListener("mousemove", onMove);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const to = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section 
+    <section
       ref={heroRef}
-      className="min-h-screen relative overflow-hidden bg-gradient-hero flex items-center justify-center"
-      style={{
-        background: `radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(var(--accent) / 0.1) 0%, transparent 50%)`
-      }}
+      className="relative bokeh flex min-h-screen items-center justify-center overflow-hidden font-nice"
+      aria-label="Hero"
     >
-      {/* Floating Art Pieces - WOW FACTOR */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-24 opacity-20 float glow-hover">
-          <img 
-            src={painting1} 
-            alt="Abstract art piece" 
-            className="w-full h-full object-cover rounded-lg shadow-2xl transform rotate-12"
-          />
-        </div>
-        <div className="absolute top-40 right-20 w-24 h-24 opacity-25 float-delayed glow-hover">
-          <img 
-            src={painting2} 
-            alt="Geometric art piece" 
-            className="w-full h-full object-cover rounded-lg shadow-2xl transform -rotate-6"
-          />
-        </div>
-        <div className="absolute bottom-32 left-20 w-20 h-32 opacity-20 float-delayed-2 glow-hover">
-          <img 
-            src={painting3} 
-            alt="Watercolor art piece" 
-            className="w-full h-full object-cover rounded-lg shadow-2xl transform rotate-3"
-          />
-        </div>
-        <div className="absolute top-60 left-1/2 w-28 h-28 opacity-15 float glow-hover">
-          <img 
-            src={painting2} 
-            alt="Art piece" 
-            className="w-full h-full object-cover rounded-lg shadow-2xl transform -rotate-12"
-          />
-        </div>
-        <div className="absolute bottom-20 right-10 w-24 h-32 opacity-20 float-delayed glow-hover">
-          <img 
-            src={painting1} 
-            alt="Art piece" 
-            className="w-full h-full object-cover rounded-lg shadow-2xl transform rotate-6"
-          />
-        </div>
-      </div>
+      <main id="main" className="relative z-10 container mx-auto px-6">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[auto,1fr] lg:gap-16">
+          {/* === Avatar (takes the exact shape of the image) === */}
+          <div className="justify-self-center">
+            {/* Use the PNG's alpha to silhouette the avatar; pink glow follows the shape via drop-shadow */}
+            <div className="group relative size-80 md:size-96">
+              <img
+                src={cartoon}
+                alt="Vishakha portrait"
+                className="size-full object-contain transition-[filter,transform] duration-300 will-change-transform hover:scale-[1.01] [filter:drop-shadow(0_0_0_rgba(236,72,153,0))] hover:[filter:drop-shadow(0_0_12px_rgba(236,72,153,0.32))]"
+              />
+            </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-6 text-center z-10 relative">
-        <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 text-glow">
-          Creative Developer
-          <span className="block text-secondary font-normal italic">& Artist</span>
-        </h1>
-        
-        <p className="font-body text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Bridging the worlds of <span className="text-accent font-semibold">technology</span> and{' '}
-          <span className="text-secondary font-semibold">creativity</span>, crafting digital experiences 
-          that inspire and engage.
-        </p>
+            {/**
+             * Fallback (if your source image is NOT transparent):
+             * Replace the <img> above with the <div> below to mask the box to the image shape
+             * and still get a silhouette + glow. Keep ONE of these blocks.
+             */}
+            {false && (
+              <div
+                className="group relative size-80 md:size-96 transition-transform duration-300 hover:scale-[1.01]"
+                style={{
+                  WebkitMaskImage: `url(${cartoon})`,
+                  maskImage: `url(${cartoon})`,
+                  WebkitMaskSize: "contain",
+                  maskSize: "contain",
+                  WebkitMaskRepeat: "no-repeat",
+                  maskRepeat: "no-repeat",
+                  WebkitMaskPosition: "center",
+                  maskPosition: "center",
+                  backgroundImage: `url(${cartoon})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  filter: "drop-shadow(0 0 0 rgba(236,72,153,0))",
+                }}
+              />
+            )}
+          </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            onClick={() => scrollToSection('projects')}
-            size="lg" 
-            className="bg-gradient-primary text-primary-foreground glow-hover font-body font-semibold"
-          >
-            View My Work
-          </Button>
-          <Button 
-            onClick={() => scrollToSection('art')}
-            variant="outline" 
-            size="lg"
-            className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground glow-secondary font-body"
-          >
-            Explore Art
-          </Button>
+          {/* Text */}
+          <div>
+            <div className="mb-6">
+              <div className="h-1 w-28 rounded-full bg-gradient-to-r from-[var(--pop-pink)] to-[var(--pop-purple)]" />
+            </div>
+            <h1 className="mb-4 text-5xl font-extrabold leading-[1.05] tracking-tight text-[var(--ink-1)] md:text-7xl">
+              Hi! I am Vishakha
+            </h1>
+            <p className="mb-8 max-w-prose text-lg leading-relaxed text-[var(--ink-2)] md:text-xl">
+              I build polished, human‑centered products—where meticulous engineering meets thoughtful, art‑driven design.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Button onClick={() => to("projects")} size="lg" className="glass pop-glow border border-white/60 text-[var(--ink-1)]">
+                View My Work
+              </Button>
+              <Button onClick={() => to("projects")} variant="outline" size="lg" className="glass pop-glow border border-white/60 text-[var(--ink-1)]">
+                Explore Projects
+              </Button>
+            </div>
+          </div>
         </div>
-      </div>
+      </main>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-muted-foreground rounded-full mt-2 animate-pulse"></div>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce" aria-hidden>
+        <div className="flex h-11 w-6 items-start justify-center rounded-full border border-white/60">
+          <div className="mt-2 h-3 w-1 animate-pulse rounded-full bg-[var(--pop-pink)]" />
         </div>
       </div>
     </section>

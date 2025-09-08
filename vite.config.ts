@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // GitHub Pages: set base to "/<repo>/" for project sites.
 // If publishing to user site (vishakha1801.github.io), set isProjectSite = false.
-const repoName = "glow-artistry-dev";        // <-- change if your repo name differs
+const repoName = "portfolio-website";        // <-- change if your repo name differs
 const isProjectSite = true;                  // true = served at /<repo>/ ; false = root domain
 
 export default defineConfig(({ mode }) => {

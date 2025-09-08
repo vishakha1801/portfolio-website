@@ -33,21 +33,20 @@ jobs:
       - name: Build
         run: npm run build
 
-      # For SPA routing: serve index.html on unknown paths
-      - name: SPA fallback (404.html)
+      # SPA fallback for client-side routing
+      - name: Create 404.html
         run: |
           if [ -d dist ]; then cp dist/index.html dist/404.html || true; fi
-          if [ -d build ]; then cp build/index.html build/404.html || true; fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true   # 👈 auto-enable Pages if not already
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: |
-            dist
-            build
+          path: dist         # 👈 Vite output
 
   deploy:
     needs: build

@@ -21,8 +21,8 @@ const App: React.FC = () => (
 <SkipLink />
 <Navigation />
 <HeroSection />
-<AboutSection />
-<SkillsSection />
+{/* <AboutSection /> */}
+{/* <SkillsSection /> */}
 <ProjectsSection />
 <ArtSection />
 <ArticlesSection />

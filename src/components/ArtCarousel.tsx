@@ -12,8 +12,11 @@ const at = (off: number) => items[(index + off + items.length) % items.length];
 
 return (
 <div className="relative mx-auto flex max-w-5xl items-center justify-center gap-5 py-6">
-<button aria-label="Previous" onClick={prev} className="glass pop-glow focus-ring absolute -left-3 top-1/2 -translate-y-1/2 rounded-full p-2">
-<ChevronLeft className="h-5 w-5" />
+<button
+  aria-label="Previous"
+  onClick={prev}
+  className="glass btn-accent-hover focus-ring absolute -left-3 top-1/2 -translate-y-1/2 rounded-full p-2"
+><ChevronLeft className="h-5 w-5" />
 </button>
 <figure className="vintage-frame w-44 opacity-55 transition-all duration-300 hover:opacity-80">
 <img src={at(-1).image} alt={at(-1).alt || at(-1).title} className="h-44 w-full rounded object-cover" />
@@ -27,8 +30,11 @@ return (
 <img src={at(1).image} alt={at(1).alt || at(1).title} className="h-44 w-full rounded object-cover" />
 <figcaption className="mt-2 text-center text-xs text-[var(--ink-2)]">{at(1).title}</figcaption>
 </figure>
-<button aria-label="Next" onClick={next} className="glass pop-glow focus-ring absolute -right-3 top-1/2 -translate-y-1/2 rounded-full p-2">
-<ChevronRight className="h-5 w-5" />
+<button
+  aria-label="Next"
+  onClick={next}
+  className="glass btn-accent-hover focus-ring absolute -right-3 top-1/2 -translate-y-1/2 rounded-full p-2"
+><ChevronRight className="h-5 w-5" />
 </button>
 </div>
 );

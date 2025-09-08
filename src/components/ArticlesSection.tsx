@@ -31,7 +31,13 @@ return (
 <CardContent>
 <div className="flex items-center justify-between">
 <div className="flex flex-wrap gap-2">{a.tags.map(t => (<Badge key={t} variant="outline" className="text-xs border-white/60 text-[var(--ink-1)]">{t}</Badge>))}</div>
-<Button asChild variant="ghost" size="sm" className="text-[var(--ink-2)] hover:text-[var(--ink-1)]"><a href={a.url}>
+<Button
+  asChild
+  variant="ghost"
+  size="sm"
+  className="glass btn-accent-hover border border-white/60 text-[var(--ink-1)]"
+>
+<a href={a.url}>
 Read More<ExternalLink className="ml-2 h-4 w-4" />
 </a></Button>
 </div>

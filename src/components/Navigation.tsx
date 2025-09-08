@@ -18,10 +18,11 @@ return (
 <div className="flex items-center justify-between">
 <div className="text-lg font-semibold text-[var(--ink-1)]">Vishakha</div>
 <div className="hidden items-center gap-6 md:flex">
-<button onClick={() => to('about')} className="text-sm text-[var(--ink-2)] hover:text-[var(--ink-1)] focus-ring">About</button>
+{/* <button onClick={() => to('about')} className="text-sm text-[var(--ink-2)] hover:text-[var(--ink-1)] focus-ring">About</button> */}
 <button onClick={() => to('projects')} className="text-sm text-[var(--ink-2)] hover:text-[var(--ink-1)] focus-ring">Projects</button>
-<button onClick={() => to('artworks')} className="text-sm text-[var(--ink-2)] hover:text-[var(--ink-1)] focus-ring">Artworks</button>
 <button onClick={() => to('articles')} className="text-sm text-[var(--ink-2)] hover:text-[var(--ink-1)] focus-ring">Articles</button>
+<button onClick={() => to('experience')} className="text-sm text-[var(--ink-2)] hover:text-[var(--ink-1)] focus-ring">Experience</button>
+<button onClick={() => to('artworks')} className="text-sm text-[var(--ink-2)] hover:text-[var(--ink-1)] focus-ring">Artworks</button>
 <Button onClick={() => to('contact')} variant="outline" className="glass pop-glow border border-white/50 text-[var(--ink-1)]">Contact</Button>
 </div>
 </div>

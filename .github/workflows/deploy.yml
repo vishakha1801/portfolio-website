@@ -1,31 +1,51 @@
-  // vite.config.ts
-    import { defineConfig } from "vite";
-    import react from "@vitejs/plugin-react-swc";
-    import path from "path";
-    import { componentTagger } from "lovable-tagger";
-    
-    // Your repo name
-    const repoName = "portfolio-website";
-    const isProjectSite = true;
-    
-    export default defineConfig(({ mode }) => {
-    const isProd = mode === "production";
-  const base = isProd && isProjectSite ? `/${repoName}/` : "/";
-    
-    return {
-    base, // 🔥🔥🔥 must be this for GH Pages
-  server: {
-    host: "::",
-    port: 8080,
-  },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-  build: {
-    outDir: "dist",
-  },
-  };
-  });
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Vite project
+        run: npm run build
+
+      - name: Add SPA fallback (404.html)
+        run: |
+          if [ -d dist ]; then cp dist/index.html dist/404.html || true; fi
+
+      - name: Upload build artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

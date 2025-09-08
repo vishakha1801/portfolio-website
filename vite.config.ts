@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// Set this based on your repo name
+// Your repo name
 const repoName = "portfolio-website";
 const isProjectSite = true;
 
@@ -13,15 +13,12 @@ export default defineConfig(({ mode }) => {
   const base = isProd && isProjectSite ? `/${repoName}/` : "/";
 
   return {
-    base,
+    base, // 🔥🔥🔥 must be this for GH Pages
     server: {
       host: "::",
       port: 8080,
     },
-    plugins: [
-      react(),
-      mode === "development" && componentTagger(),
-    ].filter(Boolean),
+    plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),

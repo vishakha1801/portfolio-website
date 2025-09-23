@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => {
   const isProd = mode === "production";
-  const base = "/"; // ✅ root domain, not /portfolio-website/
+  const base = "/"; 
 
   return {
     base,

@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2025-09-23T23:35:48.812Z",
+  "articles": [
+    {
+      "id": 174219233,
+      "title": "Adversarial Examples: Why Your Model’s Confidence Cannot Be Trusted",
+      "excerpt": "We live in a time where models pass the bar exam, generate photorealistic art, and write code that compiles while convincing product teams, venture capitalists, and sometimes even regulators that they “understand” the world.",
+      "publishDate": "Sep 22, 2025",
+      "readTime": "5 min read",
+      "url": "https://substack.com/home/post/p-174219233",
+      "imageUrl": "https://substackcdn.com/image/fetch/$s_!xgGu!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4821698d-8034-402e-a7c3-85b953a6cd36_336x320.jpeg",
+      "tags": []
+    }
+  ]
+}

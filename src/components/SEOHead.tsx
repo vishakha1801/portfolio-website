@@ -1,6 +1,6 @@
 import React from "react";
 // If using Next.js, swap to: import Head from 'next/head'
-const SEOHead: React.FC<{ title?: string; description?: string; url?: string }>= ({ title = "Vishakha Pathak — Portfolio", description = "Engineer & artist crafting human‑centered products.", url = "https://your-domain.com" }) => (
+const SEOHead: React.FC<{ title?: string; description?: string; url?: string }>= ({ title = "Vishakha", description = "Engineer & artist crafting human‑centered products.", url = "https://your-domain.com" }) => (
 <>
 <title>{title}</title>
 <meta name="description" content={description} />
@@ -12,7 +12,7 @@ const SEOHead: React.FC<{ title?: string; description?: string; url?: string }>=
 <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify({
 "@context":"https://schema.org","@type":"Person","name":"Vishakha Pathak","url":url,"sameAs":["https://www.linkedin.com/in/vishakha-pathak","https://github.com/"]
 })}} />
-<link rel="icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" href="/icon.png" />
 {/* Include the font once in _document.html or index.html */}
 </>
 );

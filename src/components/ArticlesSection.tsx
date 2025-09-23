@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Calendar, Clock, ArrowRight } from "lucide-react";
+import staticSubstack from "@/data/substack.json";
 
 type SubstackTag = { name?: string; display_name?: string; slug?: string };
 
@@ -31,6 +32,7 @@ type Article = {
   readTime: string;
   url: string;
   imageUrl?: string | null;
+  tags?: string[];
 };
 
 const SUBSTACK_ARCHIVE_URL = import.meta.env.DEV
@@ -84,10 +86,17 @@ const toArticle = (post: SubstackPost): Article => ({
 });
 
 const ArticlesSection: React.FC = () => {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
+  const staticArticles = (staticSubstack as { articles?: Article[] }).articles ?? [];
+  const useLiveFetch = import.meta.env.DEV;
+
+  const [articles, setArticles] = useState<Article[]>(useLiveFetch ? [] : staticArticles);
+  const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">(
+    useLiveFetch ? "idle" : "ready"
+  );
 
   useEffect(() => {
+    if (!useLiveFetch) return;
+
     let ignore = false;
     const fetchPosts = async () => {
       try {
@@ -108,7 +117,7 @@ const ArticlesSection: React.FC = () => {
     return () => {
       ignore = true;
     };
-  }, []);
+  }, [useLiveFetch]);
 
   return (
     <section id="articles" className="mouse-glow py-28 font-nice">

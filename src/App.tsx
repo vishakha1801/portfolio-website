@@ -24,9 +24,9 @@ const App: React.FC = () => (
 {/* <AboutSection /> */}
 {/* <SkillsSection /> */}
 <ProjectsSection />
-<ArtSection />
 <ArticlesSection />
 <ExperienceSection />
+<ArtSection />
 <ContactSection />
 <Footer />
 </>

@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 
 const AboutSection: React.FC = () => (
-<section id="about" className="py-24 font-nice">
+<section id="about" className="mouse-glow py-24 font-nice">
 <div className="container mx-auto px-6">
 <div className="mx-auto max-w-4xl text-center mb-14">
 <div className="mx-auto mb-6 h-1 w-24 rounded-full bg-gradient-to-r from-[var(--pop-pink)] to-[var(--pop-purple)]" />

@@ -19,10 +19,11 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'display': ['Playfair Display', 'serif'],
-				'body': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-				'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+				'display': ['Caveat', 'cursive'],
+				'body': ['Calibri', 'Manrope', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+				'sans': ['Calibri', 'Manrope', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
 				'serif': ['Playfair Display', 'serif'],
+				'nice': ['Calibri', 'Manrope', 'Inter', 'system-ui', '-apple-system', 'sans-serif']
 			},
 			colors: {
 				border: 'hsl(var(--border))',

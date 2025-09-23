@@ -17,6 +17,13 @@ export default defineConfig(({ mode }) => {
     server: {
       host: "::",
       port: 8080,
+      proxy: {
+        "/substack": {
+          target: "https://vishakhapathak.substack.com",
+          changeOrigin: true,
+          rewrite: (p: string) => p.replace(/^\/substack/, ""),
+        },
+      },
     },
     plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
     resolve: {

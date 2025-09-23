@@ -1,11 +1,26 @@
-import React, { useEffect } from "react";
-const SubstackEmbed: React.FC<{ publication?: string }>= ({ publication = "your-substack" }) => {
-useEffect(() => {
-const id = "substack-widget-script";
-if (document.getElementById(id)) return;
-const s = document.createElement("script");
-s.id = id; s.async = true; s.src = "https://substackapi.com/widget.js"; document.body.appendChild(s);
-}, []);
-return <div className="glass pop-glow rounded-xl p-4" data-widget="substack" data-substack={publication}></div>;
+import React from "react";
+
+type Props = {
+  publication?: string;
+  height?: number;
 };
+
+const SubstackEmbed: React.FC<Props> = ({ publication = "vishakhapathak", height = 180 }) => {
+  const src = publication
+    ? `https://${publication}.substack.com/embed`
+    : "https://substack.com/embed";
+  return (
+    <div className="glass pop-glow rounded-xl p-0 overflow-hidden">
+      <iframe
+        src={src}
+        className="w-full"
+        style={{ height }}
+        frameBorder="0"
+        scrolling="no"
+        title="Subscribe to Substack"
+      />
+    </div>
+  );
+};
+
 export default SubstackEmbed;

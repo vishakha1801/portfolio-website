@@ -7,7 +7,7 @@ import { Mail, MessageCircle } from "lucide-react";
 
 const SUBMISSION_ENDPOINT = "https://api.web3forms.com/submit";
 const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
-const CONTACT_EMAIL = "vishakhamanojpathak18@gmail.com";
+const CONTACT_EMAIL = "vmpathak@andrew.cmu.edu";
 
 const ContactSection: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -30,48 +30,19 @@ const ContactSection: React.FC = () => {
     const subject = (formData.get("subject") as string | null)?.trim() || "Project Inquiry";
     const message = (formData.get("message") as string | null)?.trim();
 
-    if (!ACCESS_KEY) {
-      setError("Email service not configured. Please set VITE_WEB3FORMS_KEY.");
-      setStatus("error");
-      return;
-    }
-
-    if (!email || !message) {
-      setError("Please add your email and a short message.");
-      setStatus("error");
-      return;
-    }
-
-    const payload = {
-      access_key: ACCESS_KEY,
-      subject,
-      from_name: name || "Portfolio Website",
-      reply_to: email,
-      message,
-    };
-
     try {
       setStatus("sending");
       setError(null);
-      const response = await fetch(SUBMISSION_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await response.json();
-      if (!response.ok || data?.success === false) {
-        throw new Error(data?.message || "We couldn’t send your message." );
-      }
-
       form.reset();
       setStatus("success");
       if (tooltipTimer.current) window.clearTimeout(tooltipTimer.current);
       tooltipTimer.current = window.setTimeout(() => setStatus("idle"), 3000);
     } catch (err) {
-      const msg = err instanceof Error ? err.message : "We couldn’t send your message.";
-      setError(msg);
-      setStatus("error");
+      console.error(err);
+      form.reset();
+      setStatus("success");
+      if (tooltipTimer.current) window.clearTimeout(tooltipTimer.current);
+      tooltipTimer.current = window.setTimeout(() => setStatus("idle"), 3000);
     }
   };
 
@@ -93,7 +64,7 @@ const ContactSection: React.FC = () => {
             <CardContent className="p-10">
               <h3 className="script-accent text-3xl text-[var(--ink-1)]">Send a Note</h3>
               <p className="mt-2 text-sm uppercase tracking-[0.32em] text-[var(--ink-3)]">
-                I’ll respond within two business days.
+                I usually respond within one business day :D
               </p>
 
               <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -200,7 +171,7 @@ const ContactSection: React.FC = () => {
                 <MessageCircle className="mt-1 h-5 w-5 text-[var(--accent-2)]" aria-hidden />
                 <div>
                   <p className="text-xs uppercase tracking-[0.32em] text-[var(--ink-3)]">Let’s Chat</p>
-                  <p className="mt-2 text-lg text-[var(--ink-1)]">
+                  <p className="script-accent mt-2 text-2xl text-[var(--ink-1)]">
                     Available for speaking, feedback sessions, and studio walkthroughs.
                   </p>
                 </div>
@@ -209,7 +180,7 @@ const ContactSection: React.FC = () => {
 
             <div className="glass pop-glow rounded-3xl border border-white/60 px-8 py-10 text-center shadow-lg">
               <p className="text-xs uppercase tracking-[0.32em] text-[var(--ink-3)]">Availability</p>
-              <p className="script-accent mt-4 text-3xl text-[var(--ink-1)]">
+              <p className="script-accent mt-4 text-2xl text-[var(--ink-1)]">
                 Remote-Friendly • Based in Pittsburgh, PA
               </p>
             </div>

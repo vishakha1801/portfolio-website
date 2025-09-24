@@ -1,5 +1,6 @@
 import React, { useEffect, KeyboardEvent } from "react";
 import { Button } from "@/components/ui/button";
+import { Github, Linkedin, Twitter } from "lucide-react";
 import cartoon from "@/assets/cartoon.png";
 import portraitReal from "@/assets/portrait.png";
 
@@ -55,7 +56,7 @@ const HeroSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col gap-3 sm:flex-row">
+              {/* <div className="flex flex-col gap-3 sm:flex-row">
                 <Button
                   onClick={() => scrollTo("projects")}
                   size="lg"
@@ -72,6 +73,37 @@ const HeroSection: React.FC = () => {
                 >
                   Explore Essays
                 </Button>
+              </div> */}
+
+              <div className="flex flex-wrap items-center gap-4 pt-2 text-[var(--ink-1)]">
+                {[
+                  {
+                    href: "https://www.linkedin.com/in/vishakha-pathak-b6643b20a/?originalSubdomain=in",
+                    label: "LinkedIn",
+                    Icon: Linkedin,
+                  },
+                  {
+                    href: "https://github.com/vishakha1801",
+                    label: "GitHub",
+                    Icon: Github,
+                  },
+                  {
+                    href: "https://x.com/Vishakha1801",
+                    label: "Twitter",
+                    Icon: Twitter,
+                  },
+                ].map(({ href, label, Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass pop-glow inline-flex items-center gap-2 rounded-full border border-white/60 px-4 py-2 text-sm font-medium transition hover:text-[var(--accent-1)]"
+                  >
+                    <Icon className="h-4 w-4" aria-hidden />
+                    <span>{label}</span>
+                  </a>
+                ))}
               </div>
             </div>
 

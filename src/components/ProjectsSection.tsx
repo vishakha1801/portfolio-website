@@ -95,7 +95,7 @@ const ProjectsSection: React.FC = () => {
                     <Badge
                       key={tag}
                       variant="outline"
-                      className="rounded-full border-white/60 bg-white/50 px-3 py-1 text-xs uppercase tracking-[0.25em] text-[var(--ink-3)]"
+                      className="project-tag rounded-full border-white/60 bg-white/55 px-3 py-1 text-xs uppercase tracking-[0.25em]"
                     >
                       {tag}
                     </Badge>

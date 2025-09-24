@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const links = [
   { label: "Projects", target: "projects" },
@@ -35,10 +36,10 @@ const Navigation: React.FC = () => {
           }`}
         >
           <button
-            className="flex items-baseline gap-2 focus-ring"
+            className="brand-mark flex items-baseline gap-2 focus-ring"
             onClick={() => scrollTo("main")}
           >
-            <span className="script-accent text-2xl leading-none text-[var(--accent-1)]">
+            <span className="script-accent text-2xl leading-none">
               Vishakha
             </span>
           </button>
@@ -48,7 +49,7 @@ const Navigation: React.FC = () => {
               <button
                 key={link.target}
                 onClick={() => scrollTo(link.target)}
-                className="text-xs font-medium uppercase tracking-[0.42em] text-[var(--ink-3)] transition hover:text-[var(--ink-1)] focus-ring"
+                className="nav-link text-xs font-medium uppercase tracking-[0.42em] focus-ring"
               >
                 {link.label}
               </button>
@@ -60,6 +61,7 @@ const Navigation: React.FC = () => {
             >
               Contact
             </Button>
+            <ThemeToggle />
           </div>
         </div>
       </div>

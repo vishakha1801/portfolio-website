@@ -1,6 +1,6 @@
 import React, { useEffect, KeyboardEvent } from "react";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { ChevronDown, Github, Linkedin, Twitter } from "lucide-react";
 import cartoon from "@/assets/cartoon.png";
 import portraitReal from "@/assets/portrait.png";
 
@@ -140,19 +140,8 @@ const HeroSection: React.FC = () => {
         className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 select-none md:bottom-8"
         aria-label="Scroll to projects"
       >
-        <div className="glass flex h-12 w-28 items-center justify-center gap-2 rounded-full border border-white/60">
-          <span className="text-xs uppercase tracking-[0.42em] text-[var(--ink-3)]">scroll</span>
-          <svg
-            aria-hidden
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            className="h-4 w-4 animate-bounce"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M6 9l6 6 6-6" />
-          </svg>
+        <div className="glass flex h-12 w-12 items-center justify-center rounded-full border border-white/60">
+          <ChevronDown className="h-5 w-5 animate-bounce text-[var(--ink-3)]" aria-hidden />
         </div>
       </div>
     </section>

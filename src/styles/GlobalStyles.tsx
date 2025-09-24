@@ -45,6 +45,24 @@ const GlobalStyles: React.FC = () => (
   --accent-2-glass: rgba(155, 92, 246, 0.16);
 }
 
+[data-theme="dark"] {
+  --ink-1: #f3f5ff;
+  --ink-2: #c7d1f1;
+  --ink-3: #94a0d6;
+  --accent-1: #7cb7ff;
+  --accent-2: #9f7bff;
+  --accent-3: #6f8dff;
+
+  --glass-surface: rgba(18, 26, 50, 0.58);
+  --glass-strong: rgba(24, 32, 62, 0.72);
+  --glass-border: rgba(148, 160, 214, 0.32);
+  --glass-shadow: 0 20px 44px rgba(10, 15, 34, 0.5);
+
+  --hairline: rgba(138, 150, 210, 0.38);
+  --line-soft: rgba(227, 232, 255, 0.08);
+  --ring: 0 0 0 3px rgba(124, 183, 255, 0.25), 0 0 0 6px rgba(159, 123, 255, 0.18);
+}
+
 body {
   font-family: var(--font-body);
   background: radial-gradient(900px 900px at var(--mouse-x, 50%) var(--mouse-y, 45%), rgba(242, 84, 168, 0.096), transparent 70%),
@@ -58,6 +76,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+[data-theme="dark"] body {
+  background: radial-gradient(900px 900px at var(--mouse-x, 50%) var(--mouse-y, 45%), rgba(96, 142, 255, 0.12), transparent 70%),
+              radial-gradient(circle at 20% -10%, rgba(51, 94, 203, 0.3), transparent 45%),
+              radial-gradient(circle at 80% 0%, rgba(136, 104, 255, 0.28), transparent 46%),
+              #0b1027;
+  color: var(--ink-2);
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -69,6 +95,11 @@ body::before {
   z-index: -1;
 }
 
+[data-theme="dark"] body::before {
+  background: radial-gradient(45% 60% at 30% 30%, rgba(110, 155, 255, 0.18), transparent 70%),
+              radial-gradient(55% 65% at 70% 25%, rgba(125, 92, 246, 0.16), transparent 70%);
+}
+
 h1, h2, h3, h4, h5, h6, .heading-script {
   font-family: var(--font-display);
   color: var(--ink-1);
@@ -76,6 +107,25 @@ h1, h2, h3, h4, h5, h6, .heading-script {
 }
 
 p, span, li, label, a, button {
+  color: var(--ink-2);
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] .heading-script {
+  color: var(--ink-1);
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] li,
+[data-theme="dark"] label,
+[data-theme="dark"] a,
+[data-theme="dark"] button {
   color: var(--ink-2);
 }
 
@@ -165,6 +215,11 @@ p, span, li, label, a, button {
   color: var(--ink-3);
 }
 
+[data-theme="dark"] .section-kicker {
+  background: rgba(20, 28, 56, 0.72);
+  border: 1px solid rgba(146, 160, 214, 0.28);
+}
+
 .section-kicker::before {
   content: '';
   width: 6px;
@@ -196,6 +251,81 @@ p, span, li, label, a, button {
   background: radial-gradient(circle at 30% 30%, rgba(242, 84, 168, 0.32), rgba(155, 92, 246, 0.08) 68%, transparent 100%);
   filter: blur(10px);
   opacity: 0.85;
+}
+
+[data-theme="dark"] .orb {
+  background: radial-gradient(circle at 30% 30%, rgba(108, 151, 255, 0.44), rgba(111, 88, 248, 0.18) 68%, transparent 100%);
+}
+
+.theme-toggle {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+}
+
+.theme-circle {
+  position: fixed;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  opacity: 0.95;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.theme-circle--expand {
+  transform: scale(1);
+}
+
+.brand-mark span {
+  color: var(--ink-1);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .brand-mark span {
+  color: #e5ecff;
+  text-shadow: 0 2px 10px rgba(96, 132, 238, 0.6);
+}
+
+.nav-link {
+  color: var(--ink-1);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-1);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .nav-link {
+  color: #e0e8ff;
+  text-shadow: 0 2px 8px rgba(92, 121, 204, 0.7);
+}
+
+[data-theme="dark"] .glass-toolbar {
+  background: rgba(16, 26, 54, 0.82);
+  border-bottom: 1px solid rgba(120, 138, 201, 0.32);
+  box-shadow: 0 18px 42px rgba(5, 10, 28, 0.55);
+}
+
+.project-tag {
+  color: var(--ink-2);
+}
+
+[data-theme="dark"] .project-tag {
+  background: rgba(32, 46, 89, 0.72);
+  border-color: rgba(146, 160, 214, 0.35);
+  color: var(--ink-1);
+}
+
+@media (max-width: 768px) {
+  .mouse-glow {
+    background-image: radial-gradient(640px 640px at 50% 40%, rgba(242, 84, 168, 0.08), transparent 70%);
+  }
+
+  [data-theme="dark"] .mouse-glow {
+    background-image: radial-gradient(640px 640px at 50% 40%, rgba(108, 151, 255, 0.16), transparent 72%);
+  }
 }
 
 .pop-glow {

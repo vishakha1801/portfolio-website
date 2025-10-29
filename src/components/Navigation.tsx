@@ -9,6 +9,8 @@ const links = [
   { label: "Artworks", target: "artworks" },
 ];
 
+const portfolioLink = { label: "Data Viz Portfolio", href: "/tswd-portfolio" };
+
 const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -19,6 +21,15 @@ const Navigation: React.FC = () => {
   }, []);
 
   const scrollTo = (id: string) => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    if (window.location.pathname !== "/") {
+      window.location.href = `/#${id}`;
+      return;
+    }
+
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 

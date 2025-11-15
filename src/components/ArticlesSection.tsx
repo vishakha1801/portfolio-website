@@ -185,7 +185,12 @@ const ArticlesSection: React.FC = () => {
         )}
 
         <div className="mx-auto mt-8 flex max-w-lg items-center justify-between gap-2 rounded-xl border border-white/60 bg-white/60 px-3 py-2 shadow-sm backdrop-blur-xl">
-          <p className="truncate text-xs text-[var(--ink-2)]">get new posts by email</p>
+          <div className="min-w-0">
+            <p className="truncate text-xs text-[var(--ink-2)]">get new posts by email</p>
+            <a href="/tswd-portfolio" className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--ink-1)] hover:underline">
+              view my forays into data viz
+            </a>
+          </div>
           <Button asChild size="sm" className="px-2 py-1 text-xs font-medium">
             <a href="https://vishakhapathak.substack.com/subscribe" target="_blank" rel="noopener noreferrer">
               subscribe <ArrowRight className="ml-1 h-3 w-3" />

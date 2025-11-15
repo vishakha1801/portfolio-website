@@ -33,6 +33,7 @@ export default defineConfig(({ mode }) => {
         input: {
           main: path.resolve(__dirname, "index.html"),
           tswdPortfolio: path.resolve(__dirname, "tswd-portfolio.html"),
+          bobRoss: path.resolve(__dirname, "bob-ross/index.html"),
         },
       },
     },

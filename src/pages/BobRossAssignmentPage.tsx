@@ -11,22 +11,22 @@ import assignmentContent from "@/content/tswd-assignment.md?raw";
 
 const markdownComponents: Components = {
   h1: ({ children, ...props }) => (
-    <h1 className="script-accent text-4xl leading-tight text-[var(--ink-1)] md:text-5xl" {...props}>
+    <h1 className="script-accent text-4xl leading-tight text-[var(--ink-1)] dark:text-white md:text-5xl" {...props}>
       {children}
     </h1>
   ),
   h2: ({ children, ...props }) => (
-    <h2 className="script-accent text-3xl leading-tight text-[var(--ink-1)] md:text-4xl" {...props}>
+    <h2 className="script-accent text-3xl leading-tight text-[var(--ink-1)] dark:text-white md:text-4xl" {...props}>
       {children}
     </h2>
   ),
   h3: ({ children, ...props }) => (
-    <h3 className="script-accent text-2xl leading-tight text-[var(--ink-1)] md:text-3xl" {...props}>
+    <h3 className="script-accent text-2xl leading-tight text-[var(--ink-1)] dark:text-white md:text-3xl" {...props}>
       {children}
     </h3>
   ),
   h4: ({ children, ...props }) => (
-    <h4 className="text-xl font-semibold leading-tight text-[var(--ink-1)] md:text-2xl" {...props}>
+    <h4 className="text-xl font-semibold leading-tight text-[var(--ink-1)] dark:text-white md:text-2xl" {...props}>
       {children}
     </h4>
   ),
@@ -36,14 +36,18 @@ const markdownComponents: Components = {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="font-semibold text-[var(--ink-1)] underline decoration-dotted underline-offset-4"
+      className="font-semibold text-[var(--ink-1)] underline decoration-dotted underline-offset-4 dark:text-white"
     >
       {children}
     </a>
   ),
   img: ({ src, alt }) => (
     <figure className="my-8 w-full">
-      <img src={src ?? ""} alt={alt ?? ""} className="mx-auto max-h-[560px] w-full rounded-3xl border border-white/50 object-contain shadow-lg" />
+      <img
+        src={src ?? ""}
+        alt={alt ?? ""}
+        className="mx-auto max-h-[560px] w-full rounded-3xl border border-white/50 object-contain shadow-lg"
+      />
       {alt && (
         <figcaption className="mt-3 text-center text-sm text-[var(--ink-3)]">
           {alt}
@@ -76,15 +80,20 @@ const BobRossAssignmentPage: React.FC = () => (
     <SkipLink />
     <Navigation />
 
-    <main id="main" className="relative z-0 flex min-h-screen flex-col bg-transparent pt-32 pb-24 font-nice text-base text-[var(--ink-2)]">
+    <main
+      id="main"
+      className="relative z-0 flex min-h-screen flex-col bg-transparent pt-32 pb-24 font-nice text-base text-[var(--ink-2)] dark:bg-gradient-to-b dark:from-[#0e0915] dark:to-[#1b1328]"
+    >
       <div className="container mx-auto px-6">
-        <article className="glass-strong pop-glow mx-auto w-full rounded-[32px] border border-white/60 px-6 py-10 shadow-xl md:w-[70%] md:px-10 md:py-12">
+        <article className="glass-strong pop-glow mx-auto w-full rounded-[32px] border border-white/60 bg-white px-6 py-10 shadow-xl backdrop-blur-xl dark:border-white/20 dark:bg-[#120b25]/95 md:w-[70%] md:px-10 md:py-12">
           <header className="space-y-4 md:text-left">
-            <p className="text-xs uppercase tracking-[0.42em] text-[var(--ink-3)]">Assignment 01 · Critique by Design</p>
-            <h1 className="script-accent text-4xl leading-tight text-[var(--ink-1)] md:text-5xl">
+            <p className="text-xs uppercase tracking-[0.42em] text-[var(--ink-3)] dark:text-white/70">
+              Assignment 01 · Critique by Design
+            </p>
+            <h1 className="script-accent text-4xl leading-tight text-[var(--ink-1)] dark:text-white md:text-5xl">
               Bob Ross: Telling Stories with Data
             </h1>
-            <p className="text-sm leading-relaxed text-[var(--ink-2)]">
+            <p className="text-sm leading-relaxed text-[var(--ink-2)] dark:text-white/80">
               Full markdown submission mirrored from{" "}
               <a
                 href="https://github.com/vishakha1801/tellin_stories_with_data/blob/main/assignment.md"
@@ -98,14 +107,33 @@ const BobRossAssignmentPage: React.FC = () => (
             </p>
             <a
               href="/tswd-portfolio"
-              className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.42em] text-[var(--ink-1)] underline decoration-dotted underline-offset-4"
+              className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.42em] text-[var(--ink-1)] underline decoration-dotted underline-offset-4 dark:text-white"
             >
               ← Back to course log
             </a>
           </header>
 
-          <div className="mouse-glow mt-10 rounded-3xl border border-white/60 bg-white/70 p-6 shadow-lg backdrop-blur-xl md:p-8">
-            <div className="prose mx-auto w-full text-[0.82rem] leading-7 text-[var(--ink-2)] prose-headings:font-semibold prose-headings:text-[var(--ink-1)] prose-strong:text-[var(--ink-1)] prose-em:text-[var(--ink-1)] prose-a:text-[var(--ink-1)] prose-li:marker:text-[var(--ink-3)] prose-p:leading-7 md:w-[70%] md:text-[0.85rem]">
+          {/* MARKDOWN BLOCK */}
+          <div className="mouse-glow mt-6 rounded-3xl border border-white/60 p-2 shadow-lg backdrop-blur-xl dark:border-white/30 md:p-3">
+            <div
+              className="prose mx-auto w-full text-[0.82rem] leading-7
+              text-[var(--ink-1)]
+              prose-headings:font-semibold
+              prose-headings:text-[var(--ink-1)]
+              prose-strong:text-[var(--ink-1)]
+              prose-em:text-[var(--ink-1)]
+              prose-a:text-[var(--ink-1)]
+              prose-li:marker:text-[var(--ink-3)]
+              prose-p:leading-7
+
+              dark:text-white
+              dark:prose-headings:text-white
+              dark:prose-strong:text-white
+              dark:prose-em:text-white
+              dark:prose-a:text-white
+
+              md:w-[70%] md:text-[0.85rem]"
+            >
               <ReactMarkdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
                 {assignmentContent}
               </ReactMarkdown>

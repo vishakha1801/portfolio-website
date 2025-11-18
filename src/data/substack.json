@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2025-09-23T23:35:48.812Z",
+  "generatedAt": "2025-11-18T00:01:43.479Z",
   "articles": [
+    {
+      "id": 179185241,
+      "title": "Mean Girls and the Art of User Segmentation",
+      "excerpt": "Segmentation Is Everywhere. How Do You Get It Right?",
+      "publishDate": "Nov 17, 2025",
+      "readTime": "8 min read",
+      "url": "https://substack.com/home/post/p-179185241",
+      "imageUrl": "https://substackcdn.com/image/fetch/$s_!BsiV!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd2d2be8e-f2b7-470c-855c-1de7b4184343_2000x1050.jpeg",
+      "tags": [
+        "product"
+      ]
+    },
     {
       "id": 174219233,
       "title": "Adversarial Examples: Why Your Model’s Confidence Cannot Be Trusted",

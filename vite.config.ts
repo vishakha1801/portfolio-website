@@ -34,6 +34,7 @@ export default defineConfig(({ mode }) => {
           main: path.resolve(__dirname, "index.html"),
           tswdPortfolio: path.resolve(__dirname, "tswd-portfolio.html"),
           bobRoss: path.resolve(__dirname, "bob-ross/index.html"),
+          legoFinalProject: path.resolve(__dirname, "lego-final-project/index.html"),
         },
       },
     },

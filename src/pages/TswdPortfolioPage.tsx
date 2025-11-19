@@ -78,7 +78,23 @@ const TswdPortfolioPage: React.FC = () => (
                   Workshop 2: critique and redesign. Notes and the embedded chart will be linked here once they are ready.
                 </li>
                 <li>
-                  Final project. The interactive piece and a short write up will live here, along with a link to the repo.
+                  Final Project Part I:{" "}
+                  <a
+                    href="/lego-final-project/"
+                    className="font-semibold text-[var(--ink-1)] underline decoration-dotted underline-offset-4"
+                  >
+                    How LEGO Grew Up
+                  </a>{" "}
+                  · full markdown mirrored locally (original{" "}
+                  <a
+                    href="https://github.com/vishakha1801/telling_stories_with_data_final_project/blob/main/submission.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-[var(--ink-1)] underline decoration-dotted underline-offset-4"
+                  >
+                    GitHub submission
+                  </a>
+                  ).
                 </li>
               </ul>
             </section>

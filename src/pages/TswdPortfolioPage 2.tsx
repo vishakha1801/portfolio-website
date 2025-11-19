@@ -108,7 +108,25 @@ const TswdPortfolioPage: React.FC = () => {
                   </button>
                 </li>
                 <li>workshop 2: critique and redesign — notes + embed slot coming soon</li>
-                <li>final project — interactive and repo link will go here once it ships</li>
+                <li>
+                  final project part i:{" "}
+                  <a
+                    href="/lego-final-project/"
+                    className="font-semibold text-[var(--ink-1)] underline decoration-dotted underline-offset-4"
+                  >
+                    how lego grew up
+                  </a>{" "}
+                  (full markdown mirrored locally, original{" "}
+                  <a
+                    href="https://github.com/vishakha1801/telling_stories_with_data_final_project/blob/main/submission.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-[var(--ink-1)] underline decoration-dotted underline-offset-4"
+                  >
+                    github submission
+                  </a>
+                  )
+                </li>
               </ul>
             </section>
 

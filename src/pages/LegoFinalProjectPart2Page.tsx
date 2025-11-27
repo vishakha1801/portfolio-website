@@ -118,10 +118,10 @@ const LegoFinalProjectPart2Page: React.FC = () => (
               with images referenced locally so everything can render reliably once assets are added.
             </p>
             <a
-              href="/tswd-portfolio"
+              href="/lego-final-project/"
               className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.42em] text-[var(--ink-1)] underline decoration-dotted underline-offset-4 dark:text-white"
             >
-              ← Back to course log
+              ← Back to Part I
             </a>
           </header>
 

@@ -12,7 +12,7 @@ import finalProjectPart2Content from "@/content/tswd-final-project-part2.md?raw"
 const markdownComponents: Components = {
   h1: ({ children, ...props }) => (
     <h1
-      className="script-accent text-center text-3xl leading-tight text-[var(--ink-1)] dark:text-white md:text-4xl"
+      className="script-accent text-center text-3xl font-semibold leading-tight text-[var(--ink-1)] dark:text-white md:text-4xl"
       {...props}
     >
       {children}
@@ -20,7 +20,7 @@ const markdownComponents: Components = {
   ),
   h2: ({ children, ...props }) => (
     <h2
-      className="script-accent text-center text-2xl leading-tight text-[var(--ink-1)] dark:text-white md:text-3xl"
+      className="script-accent text-center text-2xl font-semibold leading-tight text-[var(--ink-1)] dark:text-white md:text-3xl"
       {...props}
     >
       {children}
@@ -28,7 +28,7 @@ const markdownComponents: Components = {
   ),
   h3: ({ children, ...props }) => (
     <h3
-      className="script-accent text-center text-xl leading-tight text-[var(--ink-1)] dark:text-white md:text-2xl"
+      className="script-accent text-left text-xl font-semibold leading-tight text-[var(--ink-1)] dark:text-white md:text-2xl"
       {...props}
     >
       {children}
@@ -36,7 +36,7 @@ const markdownComponents: Components = {
   ),
   h4: ({ children, ...props }) => (
     <h4
-      className="text-center text-lg font-semibold leading-tight text-[var(--ink-1)] dark:text-white md:text-xl"
+      className="text-left text-lg font-semibold leading-tight text-[var(--ink-1)] dark:text-white md:text-xl"
       {...props}
     >
       {children}
@@ -53,20 +53,30 @@ const markdownComponents: Components = {
       {children}
     </a>
   ),
-  img: ({ src, alt }) => (
-    <figure className="my-8 w-full">
-      <img
-        src={src ?? ""}
-        alt={alt ?? ""}
-        className="mx-auto w-full rounded-3xl border border-white/50 object-contain shadow-lg"
-      />
-      {alt && (
-        <figcaption className="mt-3 text-center text-sm text-[var(--ink-3)]">
-          {alt}
-        </figcaption>
-      )}
-    </figure>
-  ),
+  img: ({ src, alt }) => {
+    const isGarage = (alt ?? "").toLowerCase().includes("garage with automated door");
+    return (
+      <>
+      <figure className="my-8 w-full">
+        <img
+          src={src ?? ""}
+          alt={alt ?? ""}
+          className={
+            isGarage
+              ? "mx-auto h-auto w-auto max-w-full rounded-3xl border border-white/50 object-contain shadow-lg"
+              : "mx-auto w-full rounded-3xl border border-white/50 object-contain shadow-lg"
+          }
+        />
+        {alt && (
+          <figcaption className="mt-3 text-center text-sm text-[var(--ink-3)]">
+            {alt}
+          </figcaption>
+        )}
+      </figure>
+      <div aria-hidden className="h-6 w-full" />
+      </>
+    );
+  },
   code: ({ inline, className, children, ...props }) =>
     inline ? (
       <code className={className} {...props}>
@@ -97,7 +107,7 @@ const LegoFinalProjectPart2Page: React.FC = () => (
       className="relative z-0 flex min-h-screen flex-col bg-transparent pt-32 pb-24 font-nice text-base text-[var(--ink-2)] dark:bg-gradient-to-b dark:from-[#090b1d] dark:to-[#111635]"
     >
       <div className="container mx-auto px-6">
-        <article className="glass-strong pop-glow mx-auto w-full max-w-6xl rounded-[32px] border border-white/60 bg-white px-6 py-10 shadow-xl backdrop-blur-xl dark:border-white/20 dark:bg-[#090c1f]/95 md:w-[85%] md:px-10 md:py-12">
+        <article className="glass-strong pop-glow mx-auto w-full max-w-5xl rounded-[32px] border border-white/60 bg-white px-6 py-10 shadow-xl backdrop-blur-xl dark:border-white/20 dark:bg-[#090c1f]/95 md:w-[70%] md:px-10 md:py-12">
           <header className="space-y-4 md:text-left">
             <p className="text-xs uppercase tracking-[0.42em] text-[var(--ink-3)] dark:text-white/70">
               Final Project Part II · How LEGO grew up
@@ -143,7 +153,7 @@ const LegoFinalProjectPart2Page: React.FC = () => (
               dark:prose-em:text-white
               dark:prose-a:text-white
 
-              md:w-[95%] md:text-[0.88rem]"
+              md:w-[80%] md:text-[0.88rem]"
             >
               <ReactMarkdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
                 {finalProjectPart2Content}

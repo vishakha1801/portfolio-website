@@ -5,7 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
-const LAST_UPDATED = "october 28, 2025";
+const LAST_UPDATED = "november 29, 2025";
 
 const TswdPortfolioPage: React.FC = () => (
   <>
@@ -88,6 +88,25 @@ const TswdPortfolioPage: React.FC = () => (
                   · full markdown mirrored locally (original{" "}
                   <a
                     href="https://github.com/vishakha1801/telling_stories_with_data_final_project/blob/main/submission.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-[var(--ink-1)] underline decoration-dotted underline-offset-4"
+                  >
+                    GitHub submission
+                  </a>
+                  ).
+                </li>
+                <li>
+                  Final Project Part II:{" "}
+                  <a
+                    href="/lego-final-project-part2/"
+                    className="font-semibold text-[var(--ink-1)] underline decoration-dotted underline-offset-4"
+                  >
+                    Wireframes, Storyboards, and User Research
+                  </a>{" "}
+                  · mirrored locally (original{" "}
+                  <a
+                    href="https://github.com/vishakha1801/telling_stories_with_data_final_project/blob/main/submission_part2.md"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-semibold text-[var(--ink-1)] underline decoration-dotted underline-offset-4"

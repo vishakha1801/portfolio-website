@@ -127,12 +127,21 @@ const LegoFinalProjectPart2Page: React.FC = () => (
               </a>{" "}
               with images referenced locally so everything can render reliably once assets are added.
             </p>
-            <a
-              href="/lego-final-project/"
-              className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.42em] text-[var(--ink-1)] underline decoration-dotted underline-offset-4 dark:text-white"
-            >
-              ← Back to Part I
-            </a>
+            <div className="flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-[0.42em] text-[var(--ink-1)] dark:text-white">
+              <a
+                href="/lego-final-project/"
+                className="underline decoration-dotted underline-offset-4"
+              >
+                ← Part I
+              </a>
+              <span className="h-[1px] w-6 bg-[var(--ink-3)] opacity-70" aria-hidden />
+              <a
+                href="/lego-final-project-part3/"
+                className="underline decoration-dotted underline-offset-4"
+              >
+                Next: Part III
+              </a>
+            </div>
           </header>
 
           <div className="mouse-glow mt-6 rounded-3xl border border-white/60 p-2 shadow-lg backdrop-blur-xl dark:border-white/30 md:p-3">

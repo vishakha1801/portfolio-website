@@ -36,6 +36,7 @@ export default defineConfig(({ mode }) => {
           bobRoss: path.resolve(__dirname, "bob-ross/index.html"),
           legoFinalProject: path.resolve(__dirname, "lego-final-project/index.html"),
           legoFinalProjectPart2: path.resolve(__dirname, "lego-final-project-part2/index.html"),
+          legoFinalProjectPart3: path.resolve(__dirname, "lego-final-project-part3/index.html"),
         },
       },
     },

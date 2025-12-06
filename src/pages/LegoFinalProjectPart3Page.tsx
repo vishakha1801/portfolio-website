@@ -7,26 +7,26 @@ import SEOHead from "@/components/SEOHead";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import finalProjectContent from "@/content/tswd-final-project.md?raw";
+import finalProjectPart3Content from "@/content/tswd-final-project-part3.md?raw";
 
 const markdownComponents: Components = {
   h1: ({ children, ...props }) => (
-    <h1 className="script-accent text-4xl leading-tight text-[var(--ink-1)] dark:text-white md:text-5xl" {...props}>
+    <h1 className="script-accent text-center text-3xl font-semibold leading-tight text-[var(--ink-1)] dark:text-white md:text-4xl" {...props}>
       {children}
     </h1>
   ),
   h2: ({ children, ...props }) => (
-    <h2 className="script-accent text-3xl leading-tight text-[var(--ink-1)] dark:text-white md:text-4xl" {...props}>
+    <h2 className="script-accent text-center text-2xl font-semibold leading-tight text-[var(--ink-1)] dark:text-white md:text-3xl" {...props}>
       {children}
     </h2>
   ),
   h3: ({ children, ...props }) => (
-    <h3 className="script-accent text-2xl leading-tight text-[var(--ink-1)] dark:text-white md:text-3xl" {...props}>
+    <h3 className="script-accent text-left text-xl font-semibold leading-tight text-[var(--ink-1)] dark:text-white md:text-2xl" {...props}>
       {children}
     </h3>
   ),
   h4: ({ children, ...props }) => (
-    <h4 className="text-xl font-semibold leading-tight text-[var(--ink-1)] dark:text-white md:text-2xl" {...props}>
+    <h4 className="text-left text-lg font-semibold leading-tight text-[var(--ink-1)] dark:text-white md:text-xl" {...props}>
       {children}
     </h4>
   ),
@@ -69,12 +69,12 @@ const markdownComponents: Components = {
     ),
 };
 
-const LegoFinalProjectPage: React.FC = () => (
+const LegoFinalProjectPart3Page: React.FC = () => (
   <>
     <SEOHead
-      title="Final Project Part I: How LEGO Grew Up | Vishakha Pathak"
-      description="Telling Stories with Data final project Part I — tracing how LEGO evolved from minimalist toys to complex, display-ready sets through data storytelling."
-      url="https://vishakhapathak.com/lego-final-project"
+      title="Final Project Part III: Final Story & Reflection | Vishakha Pathak"
+      description="Telling Stories with Data final project Part III — the shipped Shorthand story, refined visuals, and closing reflections on LEGO's evolution."
+      url="https://vishakhapathak.com/lego-final-project-part3"
     />
     <GlobalStyles />
     <SkipLink />
@@ -85,18 +85,18 @@ const LegoFinalProjectPage: React.FC = () => (
       className="relative z-0 flex min-h-screen flex-col bg-transparent pt-32 pb-24 font-nice text-base text-[var(--ink-2)] dark:bg-gradient-to-b dark:from-[#090b1d] dark:to-[#111635]"
     >
       <div className="container mx-auto px-6">
-        <article className="glass-strong pop-glow mx-auto w-full rounded-[32px] border border-white/60 bg-white px-6 py-10 shadow-xl backdrop-blur-xl dark:border-white/20 dark:bg-[#090c1f]/95 md:w-[70%] md:px-10 md:py-12">
+        <article className="glass-strong pop-glow mx-auto w-full max-w-5xl rounded-[32px] border border-white/60 bg-white px-6 py-10 shadow-xl backdrop-blur-xl dark:border-white/20 dark:bg-[#090c1f]/95 md:w-[70%] md:px-10 md:py-12">
           <header className="space-y-4 md:text-left">
             <p className="text-xs uppercase tracking-[0.42em] text-[var(--ink-3)] dark:text-white/70">
-              Final Project Part I · How LEGO grew up
+              Final Project Part III · How LEGO grew up
             </p>
             <h1 className="script-accent text-4xl leading-tight text-[var(--ink-1)] dark:text-white md:text-5xl">
-              LEGO: From Toy Box to Collectible Medium
+              LEGO: Final Story, Assets, and Reflection
             </h1>
             <p className="text-sm leading-relaxed text-[var(--ink-2)] dark:text-white/80">
-              Full markdown submission mirrored from {" "}
+              Full markdown submission mirrored from{" "}
               <a
-                href="https://github.com/vishakha1801/telling_stories_with_data_final_project/blob/main/submission.md"
+                href="https://github.com/vishakha1801/telling_stories_with_data_final_project/blob/main/final-project-part3.md"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-[var(--ink-1)] underline decoration-dotted underline-offset-4"
@@ -105,19 +105,28 @@ const LegoFinalProjectPage: React.FC = () => (
               </a>{" "}
               with images hosted locally so everything renders even when GitHub is down.
             </p>
-            <div className="flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-[0.42em] text-[var(--ink-1)] dark:text-white">
-              <a
-                href="/tswd-portfolio"
-                className="underline decoration-dotted underline-offset-4"
-              >
-                ← Course log
-              </a>
-              <span className="h-[1px] w-6 bg-[var(--ink-3)] opacity-70" aria-hidden />
+            <div className="flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-[0.36em] text-[var(--ink-1)] dark:text-white">
               <a
                 href="/lego-final-project-part2/"
                 className="underline decoration-dotted underline-offset-4"
               >
-                Next: Part II
+                ← Back to Part II
+              </a>
+              <span className="h-[1px] w-6 bg-[var(--ink-3)] opacity-70" aria-hidden />
+              <a
+                href="/tswd-portfolio"
+                className="underline decoration-dotted underline-offset-4"
+              >
+                Course log
+              </a>
+              <span className="h-[1px] w-6 bg-[var(--ink-3)] opacity-70" aria-hidden />
+              <a
+                href="https://carnegiemellon.shorthandstories.com/how-lego-grew-up/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--ink-1)] px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+              >
+                View live shorthand
               </a>
             </div>
           </header>
@@ -140,10 +149,10 @@ const LegoFinalProjectPage: React.FC = () => (
               dark:prose-em:text-white
               dark:prose-a:text-white
 
-              md:w-[70%] md:text-[0.85rem]"
+              md:w-[80%] md:text-[0.88rem]"
             >
               <ReactMarkdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
-                {finalProjectContent}
+                {finalProjectPart3Content}
               </ReactMarkdown>
             </div>
           </div>
@@ -155,4 +164,4 @@ const LegoFinalProjectPage: React.FC = () => (
   </>
 );
 
-export default LegoFinalProjectPage;
+export default LegoFinalProjectPart3Page;
